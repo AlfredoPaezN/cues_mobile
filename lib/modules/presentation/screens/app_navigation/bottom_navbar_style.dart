@@ -19,7 +19,7 @@ class CustomNavBarWidget extends StatelessWidget {
     required bool isSelected,
   }) {
     return Container(
-      color: const Color(CUES_Colors.primary),
+      color: Colors.white,
       alignment: Alignment.center,
       height: 60,
       child: Column(
@@ -63,7 +63,7 @@ class CustomNavBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(CUES_Colors.primary),
+      color: Colors.white,
       width: double.infinity,
       child: Padding(
         padding: const EdgeInsets.only(top: 5),

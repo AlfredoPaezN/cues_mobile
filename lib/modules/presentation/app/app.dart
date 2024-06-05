@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:virtual_cues/core/utils/colors.dart';
 import 'package:virtual_cues/modules/presentation/blocs/auth/auth_cubit.dart';
 import 'package:virtual_cues/modules/presentation/widgets/background.dart';
@@ -26,6 +27,21 @@ class App extends StatelessWidget {
           child: MaterialApp.router(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
+              tabBarTheme: const TabBarTheme(
+                labelColor: Color(CUES_Colors.primary),
+                unselectedLabelColor: Color(CUES_Colors.gray),
+                tabAlignment: TabAlignment.center,
+              ),
+              textTheme: TextTheme(
+                displayLarge: GoogleFonts.poppins(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
+                ),
+                bodyLarge: GoogleFonts.poppins(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
               fontFamily: GoogleFonts.poppins().fontFamily,
               brightness: Brightness.light,
               unselectedWidgetColor: const Color(CUES_Colors.primary),
@@ -33,7 +49,7 @@ class App extends StatelessWidget {
                 primary: Color(CUES_Colors.primary),
                 secondary: Color(CUES_Colors.secondary),
                 background: Colors.transparent,
-              ),
+              ).copyWith(background: const Color(CUES_Colors.backgroundColor)),
             ),
             routeInformationParser: AppRouter().router.routeInformationParser,
             routeInformationProvider:

@@ -39,84 +39,78 @@ class GridItem extends StatelessWidget {
           ),
         ),
       ),
-      child: Material(
+      child: Card(
         color: Colors.white,
-        elevation: 1,
-        shadowColor: Colors.black54,
         child: InkWell(
           onTap: onTap,
-          child: Container(
-            padding: EdgeInsets.symmetric(vertical: 8.h),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                            vertical: 8.r,
-                            horizontal: 16.r,
-                          ),
-                          child: leading ??
-                              SizedBox(
-                                height: 50.r,
-                                width: 50.r,
-                              ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          vertical: 8.r,
+                          horizontal: 16.r,
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            widgetTitle ??
-                                Text(
-                                  title ?? '',
-                                  overflow: TextOverflow.fade,
-                                  maxLines: 1,
-                                  style: appTheme.textTheme.titleMedium,
-                                ),
-                            SizedBox(height: 4.r),
-                            widgetSubtitle ??
-                                Text(
-                                  subtitle ?? '',
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 1,
-                                  style: appTheme.textTheme.bodyLarge,
-                                ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(0.r),
-                      child: trailing ??
-                          Container(
-                            margin: EdgeInsets.only(right: 16.r),
-                            child: Icon(
-                              Ionicons.chevron_forward,
-                              size: appTheme.iconTheme.size,
+                        child: leading ??
+                            SizedBox(
+                              height: 50.r,
+                              width: 50.r,
                             ),
-                          ),
-                    ),
-                  ],
-                ),
-                AnimatedCrossFade(
-                  duration: const Duration(milliseconds: 150),
-                  reverseDuration: const Duration(milliseconds: 1500),
-                  firstCurve: Curves.bounceIn,
-                  secondCurve: Curves.bounceIn,
-                  firstChild: const SizedBox(),
-                  crossFadeState: isExpanded
-                      ? CrossFadeState.showSecond
-                      : CrossFadeState.showFirst,
-                  secondChild: IntrinsicHeight(
-                    child: expandedContent,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          widgetTitle ??
+                              Text(
+                                title ?? '',
+                                overflow: TextOverflow.fade,
+                                maxLines: 1,
+                                style: appTheme.textTheme.titleMedium,
+                              ),
+                          SizedBox(height: 4.r),
+                          widgetSubtitle ??
+                              Text(
+                                subtitle ?? '',
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
+                                style: appTheme.textTheme.bodyLarge,
+                              ),
+                        ],
+                      ),
+                    ],
                   ),
+                  Padding(
+                    padding: EdgeInsets.all(0.r),
+                    child: trailing ??
+                        Container(
+                          margin: EdgeInsets.only(right: 16.r),
+                          child: Icon(
+                            Ionicons.chevron_forward,
+                            size: appTheme.iconTheme.size,
+                          ),
+                        ),
+                  ),
+                ],
+              ),
+              AnimatedCrossFade(
+                duration: const Duration(milliseconds: 150),
+                reverseDuration: const Duration(milliseconds: 1500),
+                firstCurve: Curves.bounceIn,
+                secondCurve: Curves.bounceIn,
+                firstChild: const SizedBox(),
+                crossFadeState: isExpanded
+                    ? CrossFadeState.showSecond
+                    : CrossFadeState.showFirst,
+                secondChild: IntrinsicHeight(
+                  child: expandedContent,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

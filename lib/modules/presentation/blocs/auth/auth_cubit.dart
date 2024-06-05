@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:virtual_cues/modules/data/datasources/remote/auth.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
@@ -8,15 +9,17 @@ part 'auth_cubit.freezed.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(const AuthState.autenticate());
+  AuthFirebase auth = AuthFirebase();
 
   Future<bool?> signInWithEmailAndPassword(
     String email,
     String password,
   ) async {
     emit(const AuthState.isLoading());
-    const user = null;
+    final user = await auth.signInWithEmailAndPassword(email, password);
+
     if (user != null) {
-      emit(const AuthState.autenticate());
+      emit(AuthState.autenticate(user: user));
       return true;
     }
     emit(const AuthState.isError());

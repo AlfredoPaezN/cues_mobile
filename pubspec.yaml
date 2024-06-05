@@ -33,6 +33,10 @@ dependencies:
   skeletonizer: ^1.0.1
   persistent_bottom_nav_bar: ^5.0.2
   url_launcher: ^6.2.6
+  animate_do: ^3.3.4
+  gap: ^3.0.1
+  firebase_auth: ^5.0.0
+  firebase_core: ^3.0.0
 
 dev_dependencies:
   bloc_test: ^9.1.4
@@ -50,8 +54,8 @@ flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
   remove_alpha_ios: true
-  image_path_android: "assets/icon/iconcat.png"
-  image_path_ios: "assets/icon/iconcatbgw.png"
+  image_path_android: "assets/icon/shield.png"
+  image_path_ios: "assets/icon/shield.png"
 
 flutter:
   uses-material-design: true

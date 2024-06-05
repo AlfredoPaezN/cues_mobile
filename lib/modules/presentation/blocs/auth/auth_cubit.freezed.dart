@@ -18,21 +18,21 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() autenticate,
+    required TResult Function(User? user) autenticate,
     required TResult Function() isLoading,
     required TResult Function() isError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? autenticate,
+    TResult? Function(User? user)? autenticate,
     TResult? Function()? isLoading,
     TResult? Function()? isError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? autenticate,
+    TResult Function(User? user)? autenticate,
     TResult Function()? isLoading,
     TResult Function()? isError,
     required TResult orElse(),
@@ -84,6 +84,8 @@ abstract class _$$AuthenticateImplCopyWith<$Res> {
   factory _$$AuthenticateImplCopyWith(
           _$AuthenticateImpl value, $Res Function(_$AuthenticateImpl) then) =
       __$$AuthenticateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({User? user});
 }
 
 /// @nodoc
@@ -93,57 +95,83 @@ class __$$AuthenticateImplCopyWithImpl<$Res>
   __$$AuthenticateImplCopyWithImpl(
       _$AuthenticateImpl _value, $Res Function(_$AuthenticateImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = freezed,
+  }) {
+    return _then(_$AuthenticateImpl(
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$AuthenticateImpl implements _Authenticate {
-  const _$AuthenticateImpl();
+  const _$AuthenticateImpl({this.user = null});
+
+  @override
+  @JsonKey()
+  final User? user;
 
   @override
   String toString() {
-    return 'AuthState.autenticate()';
+    return 'AuthState.autenticate(user: $user)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$AuthenticateImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$AuthenticateImpl &&
+            const DeepCollectionEquality().equals(other.user, user));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(user));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AuthenticateImplCopyWith<_$AuthenticateImpl> get copyWith =>
+      __$$AuthenticateImplCopyWithImpl<_$AuthenticateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() autenticate,
+    required TResult Function(User? user) autenticate,
     required TResult Function() isLoading,
     required TResult Function() isError,
   }) {
-    return autenticate();
+    return autenticate(user);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? autenticate,
+    TResult? Function(User? user)? autenticate,
     TResult? Function()? isLoading,
     TResult? Function()? isError,
   }) {
-    return autenticate?.call();
+    return autenticate?.call(user);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? autenticate,
+    TResult Function(User? user)? autenticate,
     TResult Function()? isLoading,
     TResult Function()? isError,
     required TResult orElse(),
   }) {
     if (autenticate != null) {
-      return autenticate();
+      return autenticate(user);
     }
     return orElse();
   }
@@ -184,7 +212,12 @@ class _$AuthenticateImpl implements _Authenticate {
 }
 
 abstract class _Authenticate implements AuthState {
-  const factory _Authenticate() = _$AuthenticateImpl;
+  const factory _Authenticate({final User? user}) = _$AuthenticateImpl;
+
+  User? get user;
+  @JsonKey(ignore: true)
+  _$$AuthenticateImplCopyWith<_$AuthenticateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -225,7 +258,7 @@ class _$IsLoadingImpl implements _IsLoading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() autenticate,
+    required TResult Function(User? user) autenticate,
     required TResult Function() isLoading,
     required TResult Function() isError,
   }) {
@@ -235,7 +268,7 @@ class _$IsLoadingImpl implements _IsLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? autenticate,
+    TResult? Function(User? user)? autenticate,
     TResult? Function()? isLoading,
     TResult? Function()? isError,
   }) {
@@ -245,7 +278,7 @@ class _$IsLoadingImpl implements _IsLoading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? autenticate,
+    TResult Function(User? user)? autenticate,
     TResult Function()? isLoading,
     TResult Function()? isError,
     required TResult orElse(),
@@ -333,7 +366,7 @@ class _$isErrorImpl implements _isError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() autenticate,
+    required TResult Function(User? user) autenticate,
     required TResult Function() isLoading,
     required TResult Function() isError,
   }) {
@@ -343,7 +376,7 @@ class _$isErrorImpl implements _isError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? autenticate,
+    TResult? Function(User? user)? autenticate,
     TResult? Function()? isLoading,
     TResult? Function()? isError,
   }) {
@@ -353,7 +386,7 @@ class _$isErrorImpl implements _isError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? autenticate,
+    TResult Function(User? user)? autenticate,
     TResult Function()? isLoading,
     TResult Function()? isError,
     required TResult orElse(),

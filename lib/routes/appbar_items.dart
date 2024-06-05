@@ -75,9 +75,9 @@ List<PersistentBottomNavBarItem> navBarsItems() {
 
 List<Widget> menuBuildScreens() {
   return [
-    const Background(child: Home()),
-    const Background(child: StudentsView()),
-    const Background(child: TeachersView()),
-    const Background(child: CuesDrawerView()),
+    const Home(),
+    const StudentsView(),
+    const TeachersView(),
+    const CuesDrawerView(),
   ];
 }

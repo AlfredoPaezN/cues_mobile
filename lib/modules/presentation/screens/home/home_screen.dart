@@ -31,6 +31,7 @@ class _HomeState extends State<Home> {
             Image.asset(
               'assets/images/logo.png',
               fit: BoxFit.cover,
+              color: const Color(CUES_Colors.primary),
               height: 100.h,
             ),
             SizedBox(height: 20.h),
@@ -90,18 +91,10 @@ class _HomeState extends State<Home> {
                 );
               },
             ),
-            SizedBox(height: 20.h),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(4),
-              child: GestureDetector(
-                onTap: () {
-                  // Get.toNamed(Routes.VEHICLE_DETAIL);
-                },
-                child: Image.asset(
-                  'assets/images/promo.png',
-                  fit: BoxFit.cover,
-                ),
-              ),
+            Image.asset(
+              'assets/images/shield.png',
+              fit: BoxFit.scaleDown,
+              height: 250.h,
             ),
           ],
         ),

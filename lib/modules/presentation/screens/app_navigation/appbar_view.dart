@@ -37,7 +37,7 @@ class _AppNavigationViewState extends State<AppNavigationView> {
     return Scaffold(
       bottomNavigationBar: Container(
         height: 10.h,
-        color: const Color(CUES_Colors.primary),
+        color: Colors.white,
       ),
       body: PersistentTabView.custom(
         context,
